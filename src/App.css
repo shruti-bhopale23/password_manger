@@ -1,0 +1,1135 @@
+
+
+:root {
+  /* Spacing Scale (8px rhythm) */
+  --space-0-5: 4px;
+  --space-1: 8px;
+  --space-1-5: 12px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Typography Scale */
+  --font-xs: 0.75rem;      /* 12px */
+  --font-sm: 0.8125rem;    /* 13px */
+  --font-base: 0.875rem;   /* 14px */
+  --font-md: 0.9375rem;    /* 15px */
+  --font-lg: 1.125rem;     /* 18px */
+  --font-xl: 1.25rem;      /* 20px */
+  --font-2xl: 1.875rem;    /* 30px */
+
+  /* Light Theme Colors */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-input: #ffffff;
+  --bg-hover: #f1f5f9;
+
+  --border-color: #e2e8f0;
+  --border-input: #cbd5e1;
+  --border-hover: #94a3b8;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+
+  /* Single Unified Accent Color */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-active: #1e40af;
+  --accent-focus: rgba(37, 99, 235, 0.25);
+  --accent-subtle: #eff6ff;
+  --accent-subtle-border: #bfdbfe;
+  --accent-text: #1d4ed8;
+
+  /* Danger Hierarchy (Delete) */
+  --danger-solid: #dc2626;
+  --danger-hover: #b91c1c;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  --danger-text: #b91c1c;
+  --danger-focus: rgba(220, 38, 38, 0.25);
+
+  /* Success Hierarchy (Copy Feedback) */
+  --success-solid: #059669;
+  --success-hover: #047857;
+  --success-bg: #ecfdf5;
+  --success-border: #a7f3d0;
+  --success-text: #065f46;
+
+  /* Subtle Modern Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+}
+
+/* ==========================================================================
+   Dark Theme (prefers-color-scheme)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0b0f19;
+    --bg-card: #131c2e;
+    --bg-subtle: #0e1626;
+    --bg-input: #0b0f19;
+    --bg-hover: #1a253a;
+
+    --border-color: #233148;
+    --border-input: #334460;
+    --border-hover: #4b6285;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-subtle: #64748b;
+
+    /* Single Unified Accent Color (Dark) */
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-active: #2563eb;
+    --accent-focus: rgba(59, 130, 246, 0.35);
+    --accent-subtle: rgba(59, 130, 246, 0.15);
+    --accent-subtle-border: rgba(59, 130, 246, 0.35);
+    --accent-text: #93c5fd;
+
+    /* Danger Hierarchy (Dark) */
+    --danger-solid: #ef4444;
+    --danger-hover: #f87171;
+    --danger-bg: rgba(239, 68, 68, 0.15);
+    --danger-border: rgba(239, 68, 68, 0.35);
+    --danger-text: #fca5a5;
+    --danger-focus: rgba(239, 68, 68, 0.35);
+
+    /* Success Hierarchy (Dark) */
+    --success-solid: #10b981;
+    --success-hover: #34d399;
+    --success-bg: rgba(16, 185, 129, 0.15);
+    --success-border: rgba(16, 185, 129, 0.35);
+    --success-text: #6ee7b7;
+
+    /* Dark Mode Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 8px 12px -2px rgba(0, 0, 0, 0.45), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ==========================================================================
+   Base Layout & Centered Max-Width (about 640px)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-2) var(--space-6);
+  text-align: left;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ==========================================================================
+   Header (App Title & Lock Button)
+   ========================================================================== */
+
+.app-header {
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 40px;
+  margin-bottom: var(--space-1);
+}
+
+.app-title {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.app-subtitle {
+  font-size: var(--font-md);
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Secondary Button: Lock Button */
+.lock-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: var(--font-base);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform 0.05s ease,
+              box-shadow var(--transition-fast);
+  user-select: none;
+}
+
+.lock-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.lock-btn:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+.lock-btn-icon {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Button Hierarchy (Primary, Secondary, Danger)
+   - Primary: Save / Unlock / Create Master Password (solid accent color)
+   - Secondary: Generate / Copy / Show / Edit / Cancel / Lock (neutral border/surface)
+   - Danger: Delete / Inline Confirm Yes (clear red styling)
+   ========================================================================== */
+
+/* Universal Focus Visible for Keyboard Accessibility */
+button:focus-visible,
+.action-btn:focus-visible,
+.submit-btn:focus-visible,
+.cancel-btn:focus-visible,
+.lock-btn:focus-visible,
+.generate-btn:focus-visible,
+.toggle-password-btn:focus-visible,
+.clear-search-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 1. PRIMARY BUTTONS: Save & Unlock */
+.submit-btn,
+.lock-submit-btn,
+.primary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: var(--font-md);
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform 0.05s ease;
+  user-select: none;
+}
+
+.submit-btn:hover,
+.lock-submit-btn:hover,
+.primary-btn:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.submit-btn:active,
+.lock-submit-btn:active,
+.primary-btn:active {
+  background-color: var(--accent-active);
+  transform: scale(0.99);
+}
+
+.submit-btn:disabled,
+.lock-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* 2. SECONDARY BUTTONS: Generate, Copy, Show, Edit, Cancel */
+.secondary-btn,
+.cancel-btn,
+.generate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: var(--font-base);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform 0.05s ease;
+  user-select: none;
+}
+
+.secondary-btn:hover,
+.cancel-btn:hover,
+.generate-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.secondary-btn:active,
+.cancel-btn:active,
+.generate-btn:active {
+  transform: scale(0.98);
+}
+
+.generate-btn {
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+
+/* Card Action Secondary Buttons (Show, Copy, Edit) */
+.action-btn {
+  padding: 6px 12px;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform 0.05s ease;
+  user-select: none;
+  line-height: 1.25;
+}
+
+.action-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+.show-hide-btn,
+.toggle-btn,
+.edit-btn {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.show-hide-btn:hover,
+.toggle-btn:hover,
+.edit-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* Copy Button & Copied Feedback */
+.copy-btn {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.copy-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.copy-btn.copied,
+.copy-btn.is-copied {
+  background-color: var(--success-bg);
+  border-color: var(--success-border);
+  color: var(--success-text);
+}
+
+.copy-btn.copied:hover,
+.copy-btn.is-copied:hover {
+  background-color: var(--success-bg);
+  border-color: var(--success-solid);
+  color: var(--success-text);
+}
+
+/* 3. DANGER BUTTONS: Delete */
+.delete-btn,
+.danger-btn {
+  background-color: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger-text);
+}
+
+.delete-btn:hover,
+.danger-btn:hover {
+  background-color: var(--danger-border);
+  color: var(--danger-solid);
+}
+
+.delete-btn:focus-visible {
+  outline: 2px solid var(--danger-solid);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Inline Card Delete Confirmation (Delete? Yes / No)
+   ========================================================================== */
+
+.delete-confirm-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  padding: 3px 6px;
+  border-radius: var(--radius-md);
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.delete-confirm-text {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--danger-text);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.delete-confirm-yes {
+  background-color: var(--danger-solid) !important;
+  border-color: var(--danger-solid) !important;
+  color: #ffffff !important;
+  padding: 4px 10px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  border-radius: var(--radius-xs);
+}
+
+.delete-confirm-yes:hover {
+  background-color: var(--danger-hover) !important;
+  border-color: var(--danger-hover) !important;
+}
+
+.delete-confirm-no {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  padding: 4px 10px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  border-radius: var(--radius-xs);
+}
+
+.delete-confirm-no:hover {
+  background-color: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ==========================================================================
+   Form & Card Surfaces (Rounded cards, subtle shadows)
+   ========================================================================== */
+
+.password-form,
+.password-list-section,
+.lock-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-card);
+  transition: background-color var(--transition-normal),
+              border-color var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.form-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.form-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+}
+
+.editing-badge {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #fef3c7;
+  color: #92400e;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid #fde68a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .editing-badge {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #fde68a;
+    border-color: rgba(245, 158, 11, 0.35);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2);
+}
+
+.form-label {
+  font-size: var(--font-base);
+  font-weight: 600;
+  margin-bottom: var(--space-0-5);
+  color: var(--text-secondary);
+}
+
+.required-star {
+  color: var(--danger-solid);
+}
+
+/* ==========================================================================
+   Inputs & Focus States
+   ========================================================================== */
+
+.form-input {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: var(--font-md);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.form-input:hover {
+  border-color: var(--border-hover);
+}
+
+.form-input:focus,
+.form-input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-focus);
+}
+
+.form-input.input-error {
+  border-color: var(--danger-solid);
+  background-color: var(--danger-bg);
+}
+
+.form-input.input-error:focus {
+  border-color: var(--danger-solid);
+  box-shadow: 0 0 0 3px var(--danger-focus);
+}
+
+/* Password Input with Show/Hide toggle inside */
+.password-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.password-input-row .password-input-wrapper {
+  flex: 1;
+}
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input {
+  padding-right: 4.25rem;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+  user-select: none;
+}
+
+.toggle-password-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Password Generator Options Panel */
+.generator-options {
+  margin-top: var(--space-1);
+  padding: var(--space-2);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1-5);
+}
+
+.generator-length-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.generator-length-label {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.length-display {
+  display: inline-block;
+  min-width: 1.75rem;
+  padding: 2px 8px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  background-color: var(--accent-subtle);
+  color: var(--accent-text);
+  border: 1px solid var(--accent-subtle-border);
+}
+
+.generator-length-input {
+  width: 4.5rem;
+  padding: 4px 8px;
+  font-size: var(--font-base);
+  text-align: center;
+}
+
+.generator-checkboxes-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.generator-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-base);
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.generator-checkbox {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.generator-checkbox:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Form Action Buttons Container */
+.form-actions {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-1-5);
+}
+
+.form-actions .submit-btn {
+  flex: 1;
+}
+
+/* Error text */
+.error-text {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--danger-solid);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.vault-error {
+  margin-bottom: var(--space-2);
+  padding: var(--space-1-5) var(--space-2);
+  background-color: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-md);
+  color: var(--danger-text);
+  font-size: var(--font-base);
+}
+
+/* ==========================================================================
+   Search Section
+   ========================================================================== */
+
+.search-section {
+  width: 100%;
+}
+
+.search-section.standalone-search {
+  margin-bottom: var(--space-2);
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-subtle);
+  pointer-events: none;
+  user-select: none;
+}
+
+.search-input {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-subtle);
+  font-size: var(--font-base);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  line-height: 1;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.clear-search-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Password List & Cards
+   ========================================================================== */
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-1-5);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.list-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.count-badge {
+  background-color: var(--accent-subtle);
+  color: var(--accent-text);
+  font-size: var(--font-xs);
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent-subtle-border);
+}
+
+.password-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1-5);
+}
+
+.password-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast),
+              border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.password-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.password-card.is-editing {
+  border-color: var(--accent);
+  background-color: var(--accent-subtle);
+  box-shadow: 0 0 0 2px var(--accent-focus);
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.card-site-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-site-icon {
+  font-size: 1rem;
+}
+
+.card-site-name {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+.card-user-row,
+.card-password-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: var(--font-base);
+  flex-wrap: wrap;
+}
+
+.card-user-label,
+.card-password-label {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: var(--font-sm);
+}
+
+.card-user-name {
+  color: var(--text-secondary);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.card-password-value,
+.card-password {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Polished Empty State
+   ========================================================================== */
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-5) var(--space-2);
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  border: 1.5px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.empty-state-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--accent-subtle);
+  color: var(--accent);
+  margin-bottom: var(--space-0-5);
+  border: 1px solid var(--accent-subtle-border);
+}
+
+.empty-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.empty-subtitle {
+  font-size: var(--font-base);
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 360px;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Polished Lock Screen
+   ========================================================================== */
+
+.lock-card {
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+}
+
+.lock-header {
+  margin-bottom: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.lock-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-xl);
+  background-color: var(--accent-subtle);
+  color: var(--accent);
+  margin-bottom: var(--space-1-5);
+  border: 1px solid var(--accent-subtle-border);
+}
+
+.lock-title {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.lock-subtitle {
+  font-size: var(--font-base);
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 380px;
+  line-height: 1.45;
+}
+
+.lock-card .form-group {
+  text-align: left;
+}
+
+.lock-error {
+  margin-top: 4px;
+  margin-bottom: var(--space-1-5);
+  text-align: left;
+}
+
+.lock-submit-btn {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Mobile Responsiveness (<= 640px)
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .app-container {
+    padding: var(--space-3) var(--space-1-5) var(--space-5);
+  }
+
+  .header-top {
+    min-height: auto;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .lock-btn {
+    padding: 5px 10px;
+    font-size: var(--font-sm);
+  }
+
+  .password-form,
+  .password-list-section,
+  .lock-card {
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-btn {
+    width: 100%;
+  }
+
+  .password-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .generate-btn {
+    width: 100%;
+  }
+
+  .generator-checkboxes-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-1);
+  }
+
+  .password-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-1-5);
+  }
+
+  .card-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .action-btn {
+    flex: 1 1 calc(50% - 6px);
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .delete-confirm-group {
+    width: 100%;
+    justify-content: space-between;
+    padding: 6px 8px;
+  }
+
+  .delete-confirm-yes,
+  .delete-confirm-no {
+    flex: 1;
+    min-height: 32px;
+  }
+}
